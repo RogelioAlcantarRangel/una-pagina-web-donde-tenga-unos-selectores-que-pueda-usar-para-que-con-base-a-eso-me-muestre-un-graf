@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Template",
-  description: "A minimal Next.js starter template",
+  title: "Visualizador INEGI",
+  description: "Consulta y visualiza datos del Banco de Información Económica del INEGI",
 };
 
 export default function RootLayout({
