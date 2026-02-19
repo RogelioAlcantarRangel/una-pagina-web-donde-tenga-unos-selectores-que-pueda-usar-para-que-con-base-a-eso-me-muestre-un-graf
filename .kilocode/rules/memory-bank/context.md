@@ -25,6 +25,9 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
   - Empleo: `702100` (personal ocupado) ✅
   - Comercio exterior: `6204198547` (exportaciones), `6204198549` (importaciones) ✅
 - [x] Added auto-switch to "Nacional" geography for indicators that only have national data
+- [x] Added ITAEE indicators that work at state level:
+  - `6207061361`: ITAEE Total (disponible por entidad federativa) ✅
+  - `6207061369`: ITAEE Actividades primarias (disponible por entidad federativa) ✅
 
 ## Current Structure
 
