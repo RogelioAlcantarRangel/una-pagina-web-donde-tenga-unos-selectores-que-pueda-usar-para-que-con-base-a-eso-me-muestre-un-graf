@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 // Docs: https://www.inegi.org.mx/servicios/api_biinegi.html
 const INEGI_TOKEN = process.env.INEGI_TOKEN || "e759ce2f-4e31-a0e9-6910-d6b68a17f2a3";
 const INEGI_BASE = "https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR";
+// URL format: INDICATOR/{id}/es/{geography}/false/BISE/2.0/{token}?type=json
 
 export async function GET(request: NextRequest) {
   if (!INEGI_TOKEN) {
@@ -12,7 +13,7 @@ export async function GET(request: NextRequest) {
 
   const { searchParams } = new URL(request.url);
   const indicatorId = searchParams.get("indicator");
-  const geography = searchParams.get("geography") || "0700"; // Nacional por defecto
+  const geography = searchParams.get("geography") || "00"; // Nacional por defecto
 
   if (!indicatorId) {
     return NextResponse.json({ error: "Se requiere el parámetro 'indicator'" }, { status: 400 });
@@ -20,7 +21,8 @@ export async function GET(request: NextRequest) {
 
   try {
     // INEGI BIE API endpoint
-    const url = `${INEGI_BASE}/${indicatorId}/${geography}/es/false/false/2.0/${INEGI_TOKEN}?type=json`;
+    // Format: INDICATOR/{id}/es/{geography}/false/BISE/2.0/{token}?type=json
+    const url = `${INEGI_BASE}/${indicatorId}/es/${geography}/false/BISE/2.0/${INEGI_TOKEN}?type=json`;
     
     const response = await fetch(url, {
       headers: {
