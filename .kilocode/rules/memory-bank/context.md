@@ -16,6 +16,8 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Recipe system for common features
 - [x] INEGI data visualizer: selectors (indicator, geography, chart type) + recharts chart + API proxy route
 - [x] INEGI API token moved to `.env.local` (env var `INEGI_TOKEN`); removed hardcoded placeholder from `route.ts`
+- [x] Fixed INEGI API URL format: correct segment order `INDICATOR/{id}/es/{geography}/false/BISE/2.0/{token}`
+- [x] Fixed geography IDs: 2-digit codes (`00`=Nacional, `01`–`32`=estados)
 
 ## Current Structure
 
