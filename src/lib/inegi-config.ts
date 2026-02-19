@@ -12,6 +12,8 @@
 // - 6204198547: Exportaciones totales (USD, mensual)
 // - 6204198549: Importaciones totales (USD, mensual)
 // - 702097: Variación anual personal ocupado (%)
+// - 6207061361: ITAEE Total (disponible por estado)
+// - 6207061369: ITAEE Actividades primarias (disponible por estado)
 
 export interface Indicator {
   id: string;
@@ -100,6 +102,21 @@ export const INDICATORS: Indicator[] = [
     description: "Población femenina total",
     unit: "Personas",
     category: "Demografía",
+  },
+  // ITAEE - Disponibles por entidad federativa
+  {
+    id: "6207061361",
+    label: "ITAEE Total",
+    description: "Indicador Trimestral de la Actividad Económica Estatal - Total",
+    unit: "Variación %",
+    category: "Economía",
+  },
+  {
+    id: "6207061369",
+    label: "ITAEE Actividades primarias",
+    description: "Indicador Trimestral de la Actividad Económica Estatal - Actividades primarias",
+    unit: "Variación %",
+    category: "Economía",
   },
 ];
 
