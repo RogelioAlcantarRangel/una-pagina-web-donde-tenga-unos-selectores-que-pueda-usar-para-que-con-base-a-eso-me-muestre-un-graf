@@ -15,6 +15,7 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Memory bank documentation
 - [x] Recipe system for common features
 - [x] INEGI data visualizer: selectors (indicator, geography, chart type) + recharts chart + API proxy route
+- [x] INEGI API token moved to `.env.local` (env var `INEGI_TOKEN`); removed hardcoded placeholder from `route.ts`
 
 ## Current Structure
 
