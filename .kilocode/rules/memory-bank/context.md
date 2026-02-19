@@ -28,6 +28,8 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Added ITAEE indicators that work at state level:
   - `6207061361`: ITAEE Total (disponible por entidad federativa) ✅
   - `6207061369`: ITAEE Actividades primarias (disponible por entidad federativa) ✅
+  - `6207061377`: ITAEE Actividades secundarias (disponible por entidad federativa) ✅
+  - `6207061373`: ITAEE Actividades terciarias (disponible por entidad federativa) ✅
 
 ## Current Structure
 

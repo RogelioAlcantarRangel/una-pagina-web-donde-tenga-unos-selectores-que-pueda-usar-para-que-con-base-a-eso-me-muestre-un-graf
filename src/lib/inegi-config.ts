@@ -14,6 +14,8 @@
 // - 702097: Variación anual personal ocupado (%)
 // - 6207061361: ITAEE Total (disponible por estado)
 // - 6207061369: ITAEE Actividades primarias (disponible por estado)
+// - 6207061377: ITAEE Actividades secundarias (disponible por estado)
+// - 6207061373: ITAEE Actividades terciarias (disponible por estado)
 
 export interface Indicator {
   id: string;
@@ -115,6 +117,20 @@ export const INDICATORS: Indicator[] = [
     id: "6207061369",
     label: "ITAEE Actividades primarias",
     description: "Indicador Trimestral de la Actividad Económica Estatal - Actividades primarias",
+    unit: "Variación %",
+    category: "Economía",
+  },
+  {
+    id: "6207061377",
+    label: "ITAEE Actividades secundarias",
+    description: "Indicador Trimestral de la Actividad Económica Estatal - Actividades secundarias",
+    unit: "Variación %",
+    category: "Economía",
+  },
+  {
+    id: "6207061373",
+    label: "ITAEE Actividades terciarias",
+    description: "Indicador Trimestral de la Actividad Económica Estatal - Actividades terciarias",
     unit: "Variación %",
     category: "Economía",
   },
