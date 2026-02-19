@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 
 // INEGI BIE (Banco de Información Económica) API
 // Docs: https://www.inegi.org.mx/servicios/api_biinegi.html
-// Token público de prueba de INEGI
-const INEGI_TOKEN = "63e5ce5a-9a3e-4e9e-b9e5-3c3e5ce5a9a3";
+// Token leído desde variable de entorno INEGI_TOKEN (configurar en .env.local)
+const INEGI_TOKEN = process.env.INEGI_TOKEN;
 const INEGI_BASE = "https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR";
 
 export async function GET(request: NextRequest) {
+  if (!INEGI_TOKEN) {
+    return NextResponse.json({ error: "Token de INEGI no configurado en el servidor." }, { status: 500 });
+  }
+
   const { searchParams } = new URL(request.url);
   const indicatorId = searchParams.get("indicator");
   const geography = searchParams.get("geography") || "0700"; // Nacional por defecto
