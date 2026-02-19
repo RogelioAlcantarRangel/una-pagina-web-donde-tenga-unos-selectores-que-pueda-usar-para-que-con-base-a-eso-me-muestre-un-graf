@@ -18,6 +18,13 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] INEGI API token moved to `.env.local` (env var `INEGI_TOKEN`); removed hardcoded placeholder from `route.ts`
 - [x] Fixed INEGI API URL format: correct segment order `INDICATOR/{id}/es/{geography}/false/BISE/2.0/{token}`
 - [x] Fixed geography IDs: 2-digit codes (`00`=Nacional, `01`–`32`=estados)
+- [x] Fixed indicator IDs: replaced broken IDs with verified working ones from INEGI BIE catalog
+  - Demografía: `1002000001-3` (población) ✅
+  - Economía: `494098` (PIB trimestral precios 2013), `524271` (PIB anual precios corrientes) ✅
+  - Precios: `702097` (variación personal ocupado) - INPC no disponible en BISE ❌
+  - Empleo: `702100` (personal ocupado) ✅
+  - Comercio exterior: `6204198547` (exportaciones), `6204198549` (importaciones) ✅
+- [x] Added auto-switch to "Nacional" geography for indicators that only have national data
 
 ## Current Structure
 

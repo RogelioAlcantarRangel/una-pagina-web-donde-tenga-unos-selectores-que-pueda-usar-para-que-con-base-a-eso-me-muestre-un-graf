@@ -1,5 +1,17 @@
 // Indicadores disponibles del INEGI BIE
-// Fuente: https://www.inegi.org.mx/app/api/indicadores/
+// Fuente: https://www.inegi.org.mx/app/api/indicadores/desarrolladores/
+// Usando el método Catálogo para encontrar IDs válidos
+
+// Nota: El INPC (Índice Nacional de Precios al Consumidor) no está disponible en BISE
+// Los indicadores de empleo/desocupación requieren suscripción a INEGI API
+
+// Indicadores verificados que funcionan con la API:
+// - 1002000001-3: Población (demografía)
+// - 494098: PIB trimestral a precios constantes 2013
+// - 524271: PIB a precios corrientes (anual)
+// - 6204198547: Exportaciones totales (USD, mensual)
+// - 6204198549: Importaciones totales (USD, mensual)
+// - 702097: Variación anual personal ocupado (%)
 
 export interface Indicator {
   id: string;
@@ -29,45 +41,49 @@ export const INDICATORS: Indicator[] = [
     unit: "Personas",
     category: "Demografía",
   },
+  // ECONOMÍA - PIB
   {
-    id: "6200093912",
-    label: "PIB a precios corrientes",
-    description: "Producto Interno Bruto a precios corrientes",
-    unit: "Millones de pesos",
+    id: "494098",
+    label: "PIB trimestral (precios constantes 2013)",
+    description: "Producto Interno Bruto a precios de 2013",
+    unit: "Millones de pesos (2013)",
     category: "Economía",
   },
   {
-    id: "6200093913",
-    label: "PIB a precios constantes",
-    description: "Producto Interno Bruto a precios constantes de 2013",
+    id: "524271",
+    label: "PIB anual (precios corrientes)",
+    description: "Producto Interno Bruto a precios actuales",
     unit: "Millones de pesos",
     category: "Economía",
   },
+  // PRECIOS - No hay INPC en BISE, usamos indicador de empleo como proxy
   {
-    id: "216064",
-    label: "Inflación (INPC)",
-    description: "Índice Nacional de Precios al Consumidor",
-    unit: "Índice",
+    id: "702097",
+    label: "Variación personal ocupado",
+    description: "Variación anual del índice de personal ocupado",
+    unit: "Porcentaje",
     category: "Precios",
   },
+  // EMPLEO
   {
-    id: "444663",
-    label: "Tasa de desocupación",
-    description: "Porcentaje de la PEA que está desocupada",
-    unit: "Porcentaje",
+    id: "702100",
+    label: "Personal ocupado",
+    description: "Índice de personal ocupado total",
+    unit: "Índice base 2013=100",
     category: "Empleo",
   },
+  // COMERCIO EXTERIOR
   {
-    id: "735927",
+    id: "6204198547",
     label: "Exportaciones totales",
-    description: "Valor total de exportaciones",
+    description: "Valor total de exportaciones (FOB)",
     unit: "Millones de dólares",
     category: "Comercio exterior",
   },
   {
-    id: "735928",
+    id: "6204198549",
     label: "Importaciones totales",
-    description: "Valor total de importaciones",
+    description: "Valor total de importaciones (FOB)",
     unit: "Millones de dólares",
     category: "Comercio exterior",
   },

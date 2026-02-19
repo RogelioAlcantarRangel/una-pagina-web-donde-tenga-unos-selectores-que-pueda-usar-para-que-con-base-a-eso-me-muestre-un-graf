@@ -43,6 +43,19 @@ export default function InegiDashboard() {
   const currentIndicator = INDICATORS.find((i) => i.id === selectedIndicator);
   const currentGeography = GEOGRAPHIES.find((g) => g.id === selectedGeography);
 
+  // Indicadores que solo funcionan a nivel nacional
+  const nationalOnlyIndicators = ["494098", "524271", "6204198547", "6204198549", "702097", "702100"];
+  const isNationalOnly = nationalOnlyIndicators.includes(selectedIndicator);
+
+  // Efecto para cambiar automáticamente a "Nacional" cuando se selecciona un indicador que solo tiene datos nacionales
+  const handleIndicatorChange = (newIndicatorId: string) => {
+    const isNewNationalOnly = nationalOnlyIndicators.includes(newIndicatorId);
+    if (isNewNationalOnly && selectedGeography !== "00") {
+      setSelectedGeography("00");
+    }
+    setSelectedIndicator(newIndicatorId);
+  };
+
   const fetchData = useCallback(async () => {
     setLoading(true);
     setError(null);
@@ -212,7 +225,7 @@ export default function InegiDashboard() {
               </label>
               <select
                 value={selectedIndicator}
-                onChange={(e) => setSelectedIndicator(e.target.value)}
+                onChange={(e) => handleIndicatorChange(e.target.value)}
                 className="bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
               >
                 {categories.map((cat) => (
@@ -238,7 +251,8 @@ export default function InegiDashboard() {
               <select
                 value={selectedGeography}
                 onChange={(e) => setSelectedGeography(e.target.value)}
-                className="bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer"
+                disabled={isNationalOnly}
+                className={`bg-gray-800 border border-gray-700 text-gray-100 rounded-lg px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent cursor-pointer ${isNationalOnly ? 'opacity-60' : ''}`}
               >
                 {GEOGRAPHIES.map((geo) => (
                   <option key={`${geo.id}-${geo.label}`} value={geo.id}>
@@ -248,6 +262,7 @@ export default function InegiDashboard() {
               </select>
               <p className="text-xs text-gray-500">
                 {currentGeography?.type === "nacional" ? "Datos nacionales" : "Datos estatales"}
+                {isNationalOnly && " (solo nivel nacional)"}
               </p>
             </div>
 
