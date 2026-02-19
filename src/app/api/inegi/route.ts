@@ -2,8 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // INEGI BIE (Banco de Información Económica) API
 // Docs: https://www.inegi.org.mx/servicios/api_biinegi.html
-// Token leído desde variable de entorno INEGI_TOKEN (configurar en .env.local)
-const INEGI_TOKEN = process.env.INEGI_TOKEN;
+const INEGI_TOKEN = process.env.INEGI_TOKEN || "e759ce2f-4e31-a0e9-6910-d6b68a17f2a3";
 const INEGI_BASE = "https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR";
 
 export async function GET(request: NextRequest) {
