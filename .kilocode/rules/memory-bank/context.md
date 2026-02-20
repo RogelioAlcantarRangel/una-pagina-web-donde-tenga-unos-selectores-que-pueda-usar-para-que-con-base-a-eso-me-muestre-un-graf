@@ -30,6 +30,8 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
   - `6207061369`: ITAEE Actividades primarias (disponible por entidad federativa) ✅
   - `6207061377`: ITAEE Actividades secundarias (disponible por entidad federativa) ✅
   - `6207061373`: ITAEE Actividades terciarias (disponible por entidad federativa) ✅
+- [x] Fixed exposed INEGI token: changed .env.example to use placeholder, created .env.local with real token
+- [x] Updated deploy configuration: ensured environment variables are properly configured for production
 
 ## Current Structure
 
@@ -102,3 +104,4 @@ export async function GET() {
 |------|---------|
 | Initial | Template created with base setup |
 | 2025-02-19 | Correcciones de revisión: token sin fallback, `.env.example`, `lang="es"`, tech.md actualizado, script lint a `next lint` |
+| 2026-02-20 | Fixed exposed INEGI token: updated .env.example with placeholders, created .env.local, configured deploy environment variables |
