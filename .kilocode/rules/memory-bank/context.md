@@ -32,6 +32,8 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
   - `6207061373`: ITAEE Actividades terciarias (disponible por entidad federativa) ✅
 - [x] Fixed exposed INEGI token: changed .env.example to use placeholder, created .env.local with real token
 - [x] Updated deploy configuration: ensured environment variables are properly configured for production
+- [x] Improved chart type adaptation: added recommendedChart property to indicators, automatic chart switching based on indicator type
+- [x] Verified data availability: confirmed 2020 limit is due to INEGI API data availability, not code restrictions
 
 ## Current Structure
 
@@ -105,3 +107,4 @@ export async function GET() {
 | Initial | Template created with base setup |
 | 2025-02-19 | Correcciones de revisión: token sin fallback, `.env.example`, `lang="es"`, tech.md actualizado, script lint a `next lint` |
 | 2026-02-20 | Fixed exposed INEGI token: updated .env.example with placeholders, created .env.local, configured deploy environment variables |
+| 2026-02-20 | Improved chart adaptation: added recommendedChart property, automatic switching based on indicator type; verified 2020 data limit is API availability |

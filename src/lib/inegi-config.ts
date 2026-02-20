@@ -23,6 +23,7 @@ export interface Indicator {
   description: string;
   unit: string;
   category: string;
+  recommendedChart?: ChartType;
 }
 
 export interface Geography {
@@ -52,6 +53,7 @@ export const INDICATORS: Indicator[] = [
     description: "Producto Interno Bruto a precios de 2013",
     unit: "Millones de pesos (2013)",
     category: "Economía",
+    recommendedChart: "line",
   },
   {
     id: "524271",
@@ -59,6 +61,7 @@ export const INDICATORS: Indicator[] = [
     description: "Producto Interno Bruto a precios actuales",
     unit: "Millones de pesos",
     category: "Economía",
+    recommendedChart: "bar",
   },
   // PRECIOS - No hay INPC en BISE, usamos indicador de empleo como proxy
   {
