@@ -83,6 +83,7 @@ bun typecheck      # Run TypeScript type checking
 ```
 /
 ├── .gitignore              # Git ignore rules
+├── .env.example            # Variables de entorno (INEGI_TOKEN)
 ├── package.json            # Dependencies and scripts
 ├── bun.lock                # Bun lockfile
 ├── next.config.ts          # Next.js configuration
@@ -92,11 +93,16 @@ bun typecheck      # Run TypeScript type checking
 ├── public/                 # Static assets
 │   └── .gitkeep
 └── src/                    # Source code
-    └── app/                # Next.js App Router
-        ├── layout.tsx      # Root layout
-        ├── page.tsx        # Home page
-        ├── globals.css     # Global styles
-        └── favicon.ico     # Site icon
+    ├── app/                # Next.js App Router
+    │   ├── api/inegi/route.ts  # API proxy INEGI BIE
+    │   ├── layout.tsx      # Root layout
+    │   ├── page.tsx        # Home page
+    │   ├── globals.css     # Global styles
+    │   └── favicon.ico     # Site icon
+    ├── components/
+    │   └── InegiDashboard.tsx
+    └── lib/
+        └── inegi-config.ts
 ```
 
 ## Technical Constraints

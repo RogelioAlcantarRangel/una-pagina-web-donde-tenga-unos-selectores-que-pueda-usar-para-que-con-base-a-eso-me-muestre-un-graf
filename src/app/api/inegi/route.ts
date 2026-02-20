@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // INEGI BIE (Banco de Información Económica) API
 // Docs: https://www.inegi.org.mx/servicios/api_biinegi.html
-const INEGI_TOKEN = process.env.INEGI_TOKEN || "e759ce2f-4e31-a0e9-6910-d6b68a17f2a3";
+const INEGI_TOKEN = process.env.INEGI_TOKEN;
 const INEGI_BASE = "https://www.inegi.org.mx/app/api/indicadores/desarrolladores/jsonxml/INDICATOR";
 // URL format: INDICATOR/{id}/es/{geography}/false/BISE/2.0/{token}?type=json
 
